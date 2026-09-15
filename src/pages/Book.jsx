@@ -1,4 +1,32 @@
+import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Loader } from "../components/Loader"
 const Book = () => {
+    const {id} = useParams()
+    const [book, setBook] = useState(null)
+    const [error, setError] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
+
+    useEffect(() => {
+        const loadBooks = async () => {
+        setError(null)
+        setIsLoading(true)
+        setBooks(null)
+        try  {
+            const response = await fetch('https://openlibrary.org/works/${id}.json')
+        
+        } catch (error){
+        
+        } finaly{
+
+        }
+
+        
+
+    }, [])
+
+    if (isLoading) return <Loader label="Загружаем книжку" />
+
     return (
         <section className="book-page">
             <div className="book-page-cover">

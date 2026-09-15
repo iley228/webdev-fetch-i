@@ -66,7 +66,8 @@ const Search = () => {
                     —
                 </span>
             </div>
-            {isLoading && <Loader />}
+            {isLoading && <Loader label={"загружаем книжки..."} />}
+            {!isLoading && error &&<h3>{error}</h3>}
             {!isLoading && !error && books &&<div className="book-grid" id="results">
                 
             {books.map((book, i) => <BookCard {...book} key={i} book_key={book.key} />)}
